@@ -2,6 +2,7 @@ package com.purple.hw.controller;
 
 import com.purple.hw.domain.Embed;
 import com.purple.hw.service.EmbedService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,7 @@ public class EmbedController {
         return "home";
     }
 
-    @PostMapping("search")
+    @PostMapping("/search")
     public String getEmbedInf(Embed embed, Model model) {
         embed = embedService.getEmbedInf(embed);
         model.addAttribute("embed", embed);

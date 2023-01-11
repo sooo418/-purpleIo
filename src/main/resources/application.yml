@@ -1,0 +1,95 @@
+#instagram
+instagram:
+  provider_name: Instagram
+  provider_url: https://instagram.com
+  endpoints:
+      schemes:
+        - http://instagram.com/*/p/*,
+        - http://www.instagram.com/*/p/*,
+        - https://instagram.com/*/p/*,
+        - https://www.instagram.com/*/p/*,
+        - http://instagram.com/p/*
+        - http://instagr.am/p/*
+        - http://www.instagram.com/p/*
+        - http://www.instagr.am/p/*
+        - https://instagram.com/p/*
+        - https://instagr.am/p/*
+        - https://www.instagram.com/p/*
+        - https://www.instagr.am/p/*
+        - http://instagram.com/tv/*
+        - http://instagr.am/tv/*
+        - http://www.instagram.com/tv/*
+        - http://www.instagr.am/tv/*
+        - https://instagram.com/tv/*
+        - https://instagr.am/tv/*
+        - https://www.instagram.com/tv/*
+        - https://www.instagr.am/tv/*
+        - http://www.instagram.com/reel/*
+        - https://www.instagram.com/reel/*
+        - http://instagram.com/reel/*
+        - https://instagram.com/reel/*
+        - http://instagr.am/reel/*
+        - https://instagr.am/reel/*
+      url: https://graph.facebook.com/v10.0/instagram_oembed
+      docs_url: https://developers.facebook.com/docs/instagram/oembed
+      example_urls:
+        - https://graph.facebook.com/v10.0/instagram_oembed?url=https%3A%2F%2Finstagram.com%2Fp%2FV8UMy0LjpX%2F
+      formats:
+        - json
+      notes:
+        - 'This endpoint requires a facebook app with the oEmbed Product attached'
+
+#twitter
+twitter:
+  provider_name: Twitter
+  provider_url: http://www.twitter.com/
+  endpoints:
+      schemes:
+        - https://twitter.com/*
+        - https://twitter.com/*/status/*
+        - https://*.twitter.com/*/status/*
+      url: https://publish.twitter.com/oembed
+      docs_url: https://developer.twitter.com/en/docs/twitter-for-websites/oembed-api
+      example_urls:
+        - https://publish.twitter.com/oembed?url=https%3A%2F%2Ftwitter.com%2FInterior%2Fstatus%2F463440424141459456
+        - https://publish.twitter.com/oembed?url=https%3A%2F%2Ftwitter.com%2FInterior%2Fstatus%2F463440424141459456
+
+#vimeo
+vimeo:
+  provider_name: Vimeo
+  provider_url: https://vimeo.com/
+  endpoints:
+      docs_url: https://developer.vimeo.com/apis/oembed
+      schemes:
+        - https://vimeo.com/*
+        - https://vimeo.com/album/*/video/*
+        - https://vimeo.com/channels/*/*
+        - https://vimeo.com/groups/*/videos/*
+        - https://vimeo.com/ondemand/*/*
+        - https://player.vimeo.com/video/*
+      url: https://vimeo.com/api/oembed.json
+      example_urls:
+        - https://vimeo.com/api/oembed.xml?url=http%3A%2F%2Fvimeo.com%2F76979871
+        - https://vimeo.com/api/oembed.json?url=http%3A%2F%2Fvimeo.com%2F76979871
+      discovery: true
+
+#youtube
+youtube:
+  provider_name: YouTube
+  provider_url: https://www.youtube.com/
+  endpoints:
+      schemes:
+        - https://*.youtube.com/watch*
+        - https://*.youtube.com/v/*
+        - https://youtu.be/*
+        - https://*.youtube.com/playlist?list=*
+        - https://youtube.com/playlist?list=*
+        - https://*.youtube.com/shorts*
+      url: https://www.youtube.com/oembed
+      discovery: true
+      example_urls:
+        - https://www.youtube.com/oembed?url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DiwGFalTRHDA
+        - https://www.youtube.com/oembed?url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DiwGFalTRHDA&format=xml
+        - https://www.youtube.com/oembed?url=http%3A%2F%2Fwww.youtube.com%2Fplaylist%3Flist%3DPLSL0f2Dh_snCsLgQ3J319RYQyctRlfJFc
+        - https://www.youtube.com/oembed?url=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLpeDXSh4nHjRmry7-h62UHfo86evvMK7E
+        - https://www.youtube.com/oembed?url=https://www.youtube.com/shorts/a12CpYea0i4
