@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class EmbedController {
@@ -21,10 +22,10 @@ public class EmbedController {
         return "home";
     }
 
-    @PostMapping("/search")
-    public String getEmbedInf(Embed embed, Model model) {
+    @GetMapping("/search")
+    @ResponseBody
+    public Embed getEmbedInf(Embed embed) {
         embed = embedService.getEmbedInf(embed);
-        model.addAttribute("embed", embed);
-        return "home";
+        return embed;
     }
 }

@@ -1,7 +1,11 @@
 package com.purple.hw.Connector;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.purple.hw.Util.HttpsUtils;
 import com.purple.hw.domain.Embed;
+import com.purple.hw.domain.EmbedFactory;
+import com.purple.hw.domain.Youtube;
+import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -43,13 +47,16 @@ public class EmbedConnector {
     }
 
     private final HttpsUtils httpsUtils;
+    private final EmbedFactory ef;
 
-    public EmbedConnector(HttpsUtils httpsUtils) {
+    public EmbedConnector(HttpsUtils httpsUtils, EmbedFactory embedFactory) {
         this.httpsUtils = httpsUtils;
+        this.ef = embedFactory;
     }
 
     public Embed callEmbedApi(Embed embed) {
         try {
+            ObjectMapper mapper = new ObjectMapper();
             // 입력받은 Url을 urlencode형식으로 인코딩
             String url = URLEncoder.encode(embed.getUrl(), "UTF-8");
 
@@ -67,9 +74,11 @@ public class EmbedConnector {
                     .append("?url=")
                     .append(url);
 
-            String result = httpsUtils.httpsRequestGet(sb.toString());
+            String jsonResult = httpsUtils.httpsRequestGet(sb.toString());
 
-            return null;
+            Embed result = mapper.readValue(jsonResult, Embed.getClass(channel.get()));
+
+            return result;
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {

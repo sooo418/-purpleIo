@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 @Component
 public class HttpsUtils {
@@ -23,11 +24,9 @@ public class HttpsUtils {
             HttpsURLConnection httpsUrlCon = (HttpsURLConnection) url.openConnection();
 
             httpsUrlCon.setRequestMethod(GET);
-            httpsUrlCon.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+            httpsUrlCon.setRequestProperty("Content-Type", "application/json");
             httpsUrlCon.setConnectTimeout(5000);
             httpsUrlCon.setReadTimeout(5000);
-
-            Charset charset = Charset.forName(UTF8);
 
             BufferedReader br = new BufferedReader(new InputStreamReader(httpsUrlCon.getInputStream(), UTF8));
 
@@ -40,7 +39,7 @@ public class HttpsUtils {
 
             br.close();
 
-            System.out.println(sb.toString());
+            System.out.println(httpsUrlCon.getResponseCode());
 
             return sb.toString();
         } catch (MalformedURLException e) {
