@@ -1,13 +1,16 @@
 package com.purple.hw.domain;
 
-public class Twitter extends Embed {
-    private String cache_age;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-    public String getCache_age() {
-        return cache_age;
+public class Twitter extends Embed {
+    @JsonProperty("cache_age")
+    private String cacheAge;
+
+    public String getCacheAge() {
+        return cacheAge;
     }
 
-    public void setCache_age(String cache_age) {
-        this.cache_age = cache_age;
+    public void setCacheAge(String cacheAge) {
+        this.cacheAge = cacheAge;
     }
 }

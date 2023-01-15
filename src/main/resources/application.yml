@@ -11,6 +11,7 @@ twitter:
   provider_url: http://www.twitter.com/
   endpoints:
     url: https://publish.twitter.com/oembed
+    test_url: https://twitter.com/hellopolicy/status/867177144815804416
 
 
 #vimeo
@@ -19,6 +20,7 @@ vimeo:
   provider_url: https://vimeo.com/
   endpoints:
     url: https://vimeo.com/api/oembed.json
+    test_url: https://vimeo.com/20097015
 
 
 #youtube
@@ -27,11 +29,4 @@ youtube:
   provider_url: https://www.youtube.com/
   endpoints:
     url: https://www.youtube.com/oembed
-
-# Charset of HTTP requests and responses. Added to the "Content-Type" header if not set explicitly.
-spring:
-  http:
-    encoding:
-      - charset: UTF-8
-        enabled: true
-        force: true
+    test_url: https://www.youtube.com/watch?v=dBD54EZIrZo

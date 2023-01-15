@@ -1,12 +1,8 @@
 package com.purple.hw;
 
-import com.purple.hw.domain.EmbedFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 @SpringBootTest
 class HwApplicationTests {
@@ -22,18 +18,10 @@ class HwApplicationTests {
 
 	@Test
 	void contextLoads() {
-		System.out.println(instaUrl + "," + twitUrl + "," + vimUrl + "," + youUrl);
+		System.out.println("Instagram URL >> " + instaUrl);
+		System.out.println("Twitter URL >> " + twitUrl);
+		System.out.println("Vimeo URL >> " + vimUrl);
+		System.out.println("Youtube >> " + youUrl);
 	}
 
-	@Test
-	void urlEncode() throws UnsupportedEncodingException {
-		System.out.println(URLEncoder.encode("https://www.youtube.com/watch?v=dBD54EZIrZo", "UTF-8"));
-
-	}
-
-	@Test
-	void testFactory() {
-		EmbedFactory ef = new EmbedFactory();
-		System.out.println(ef.createEmbed("youtube").getClass());
-	}
 }

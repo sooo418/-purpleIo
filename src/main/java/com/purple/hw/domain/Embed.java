@@ -1,5 +1,7 @@
 package com.purple.hw.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.purple.hw.constants.EmbedChannelType;
 import org.thymeleaf.util.StringUtils;
 
 public class Embed {
@@ -8,14 +10,18 @@ public class Embed {
     private static final String TWITTER = "twitter";
 
     private String url;
-    private String author_name;
-    private String author_url;
+    @JsonProperty("author_name")
+    private String authorName;
+    @JsonProperty("author_url")
+    private String authorUrl;
     private String type;
     private int height;
     private int width;
     private String version;
-    private String provider_name;
-    private String provider_url;
+    @JsonProperty("provider_name")
+    private String providerName;
+    @JsonProperty("provider_url")
+    private String providerUrl;
     private String html;
 
     public String getUrl() {
@@ -26,20 +32,20 @@ public class Embed {
         this.url = url;
     }
 
-    public String getAuthor_name() {
-        return author_name;
+    public String getAuthorName() {
+        return authorName;
     }
 
-    public void setAuthor_name(String author_name) {
-        this.author_name = author_name;
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
 
-    public String getAuthor_url() {
-        return author_url;
+    public String getAuthorUrl() {
+        return authorUrl;
     }
 
-    public void setAuthor_url(String author_url) {
-        this.author_url = author_url;
+    public void setAuthorUrl(String authorUrl) {
+        this.authorUrl = authorUrl;
     }
 
     public String getType() {
@@ -74,20 +80,20 @@ public class Embed {
         this.version = version;
     }
 
-    public String getProvider_name() {
-        return provider_name;
+    public String getProviderName() {
+        return providerName;
     }
 
-    public void setProvider_name(String provider_name) {
-        this.provider_name = provider_name;
+    public void setProviderName(String providerName) {
+        this.providerName = providerName;
     }
 
-    public String getProvider_url() {
-        return provider_url;
+    public String getProviderUrl() {
+        return providerUrl;
     }
 
-    public void setProvider_url(String provider_url) {
-        this.provider_url = provider_url;
+    public void setProviderUrl(String providerUrl) {
+        this.providerUrl = providerUrl;
     }
 
     public String getHtml() {
@@ -98,13 +104,13 @@ public class Embed {
         this.html = html;
     }
 
-    public static Class<? extends Embed> getClass(String channel) {
-        if ( StringUtils.equalsIgnoreCase(channel, YOUTUBE) ) {
+    public static Class<? extends Embed> getClass(EmbedChannelType embedChannelType) {
+        if ( EmbedChannelType.YOUTUBE.isEqualTo(embedChannelType) ) {
             return Youtube.class;
-        } else if ( StringUtils.equalsIgnoreCase(channel, VIMEO) ) {
-            return Vimeo.class;
-        } else if ( StringUtils.equalsIgnoreCase(channel, TWITTER) ) {
+        } else if ( EmbedChannelType.TWITTER.isEqualTo(embedChannelType) ) {
             return Twitter.class;
+        } else if ( EmbedChannelType.VIMEO.isEqualTo(embedChannelType) ) {
+            return Vimeo.class;
         }
         return null;
     }

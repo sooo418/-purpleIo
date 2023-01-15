@@ -1,10 +1,15 @@
 package com.purple.hw.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Youtube extends Embed {
     private String title;
-    private int thumbnail_height;
-    private int thumbnail_width;
-    private String thumbnail_url;
+    @JsonProperty("thumbnail_height")
+    private int thumbnailHeight;
+    @JsonProperty("thumbnail_width")
+    private int thumbnailWidth;
+    @JsonProperty("thumbnail_url")
+    private String thumbnailUrl;
 
     public String getTitle() {
         return title;
@@ -14,27 +19,27 @@ public class Youtube extends Embed {
         this.title = title;
     }
 
-    public int getThumbnail_height() {
-        return thumbnail_height;
+    public int getThumbnailHeight() {
+        return thumbnailHeight;
     }
 
-    public void setThumbnail_height(int thumbnail_height) {
-        this.thumbnail_height = thumbnail_height;
+    public void setThumbnailHeight(int thumbnailHeight) {
+        this.thumbnailHeight = thumbnailHeight;
     }
 
-    public int getThumbnail_width() {
-        return thumbnail_width;
+    public int getThumbnailWidth() {
+        return thumbnailWidth;
     }
 
-    public void setThumbnail_width(int thumbnail_width) {
-        this.thumbnail_width = thumbnail_width;
+    public void setThumbnailWidth(int thumbnailWidth) {
+        this.thumbnailWidth = thumbnailWidth;
     }
 
-    public String getThumbnail_url() {
-        return thumbnail_url;
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
     }
 
-    public void setThumbnail_url(String thumbnail_url) {
-        this.thumbnail_url = thumbnail_url;
+    public void setThumbnailUrl(String thumbnailUrl) {
+        this.thumbnailUrl = thumbnailUrl;
     }
 }

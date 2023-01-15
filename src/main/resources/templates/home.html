@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<style>
-    .header {
-        text-align: center;
-        height: 150px;
-        background-color: lightseagreen;
-    }
-    .body {
-        background-color: white;
-    }
-</style>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Oembed Test Site</title>
+</head>
+<link rel="stylesheet" href="css/home.css" type="text/css" />
+<script type="text/javascript" src="js/home.js" ></script>
+<script type="text/javascript" src="js/essential.js" ></script>
+<script type="text/javascript" src="js/optional.js" ></script>
 <body>
-
 <div class="container">
-    <div class="header">
-        <h1>oEmbed Test</h1>
-        <input type="url" id="url" name="url">
-        <button id="search">확인</button>
-    </div>
-    <div class="body">
-        <table>
-            <tr>
-                <td></td>
-            </tr>
-        </table>
-    </div>
-</div><!-- /container -->
+    <div id="header">
+        <div id="title">oEmbed Test</div>
 
+        <div id="input_box">
+            <input type="text" placeholder="url을 입력해주세요" id="url" onkeyup="enter(event)"/>
+            <input type="button" value="확인" onclick="requestUrl()" />
+        </div>
+    </div>
+    <div id="content">
+        <div id="content_wrap">
+            <div id="title_container"></div>
+            <ul id="data_in_container"></ul>
+        </div>
+    </div>
+</div>
+
+<!-- /container -->
 </body>
 </html>
