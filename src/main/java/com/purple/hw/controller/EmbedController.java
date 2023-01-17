@@ -1,5 +1,6 @@
 package com.purple.hw.controller;
 
+import com.purple.hw.constants.ApiStatus;
 import com.purple.hw.domain.ApiResponse;
 import com.purple.hw.domain.Embed;
 import com.purple.hw.service.EmbedService;
@@ -24,6 +25,6 @@ public class EmbedController {
     @ResponseBody
     public ApiResponse getEmbedInf(Embed embed) throws Exception {
         embed = embedService.getEmbedInf(embed);
-        return new ApiResponse("200", "SUCCESS", embed);
+        return new ApiResponse(ApiStatus.OK.getStatus(), ApiStatus.OK.getMessage(), embed);
     }
 }
